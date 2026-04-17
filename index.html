@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TDM Elettroimpianti | Domenico e Massimo Toppi</title>
-
+    <link rel="icon" href="favicon.ico" type="image/x-icon" sizes="32x32">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <!-- FONT PREMIUM PARTICOLARE -->
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
 
@@ -16,35 +17,50 @@
 
     <style>
         :root {
-            /* PALETTE SCURA PASTELLO */
-            --bg: #1e1f23;
-            --bg-soft: #26272c;
-            --text: #f2f2f3;
-            --text-soft: #c7c7cb;
+    /* 🌌 BACKGROUND IED STYLE */
+    --bg: #0A192F;          /* blu notte profondo */
+    --bg-soft: #172A45;     /* blu ardesia */
 
-            --card: #2b2c31;
-            --card-light: #34353b;
+    /* ✍️ TESTO */
+    --text: #CCD6F6;        /* grigio chiaro bluastro */
+    --text-soft: #8892B0;
 
-            --border: rgba(255,255,255,0.08);
+    /* 🧱 CARD */
+    --card: #112240;
+    --card-light: #172A45;
 
-            --accent: #9aa7ff; 
-            --accent-strong: #6f7dff;
-            --accent-soft: #bfc7ff;
+    /* 🔲 BORDI */
+    --border: rgba(100, 255, 218, 0.12);
 
-            --shadow-soft: 0 8px 28px rgba(0,0,0,0.25);
-            --shadow-deep: 0 18px 60px rgba(0,0,0,0.35);
+    /* 🎯 ACCENTO (CTA / HOVER) */
+    --accent: #64FFDA;        /* teal acceso */
+    --accent-soft: rgba(100,255,218,0.2);
 
-            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    /* 🌫️ OMBRE */
+    --shadow-soft: 0 10px 30px rgba(0,0,0,0.3);
+    --shadow-deep: 0 25px 70px rgba(0,0,0,0.5);
+
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+        @font-face {
+            font-family: "Audiowide";
+            src: url("Audiowide-Regular.ttf") format("truetype");
+        }
+
+        @font-face {
+            font-family: "Pencerio";
+            src: url("Pencerio-Hairline.ttf") format("truetype");
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
 
         body {
-            font-family: 'Satoshi', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            overflow-x: hidden;
-        }
+    font-family: 'Satoshi', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+}
 
         /* HERO */
         .hero {
@@ -58,12 +74,24 @@
             padding: 20px;
         }
 
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, #1e1f23 0%, #2b2c31 100%);
-            z-index: -2;
+
+        .hero-title {
+            font-family: "Audiowide", sans-serif;
         }
+
+        .font-pencerio {
+            font-family: "Pencerio", serif;
+        }
+        .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at top,
+        #172A45 0%,
+        #0A192F 60%
+    );
+    z-index: 0;
+}
 
         .hero-logo {
             width: 350px;
@@ -87,17 +115,94 @@
             font-weight: 600;
             margin-bottom: 25px;
             color: var(--text-soft);
+            position: absolute;
+            top: 50px;
+            z-index: 10;
         }
 
-        .hero-title {
-            font-family: 'Poppins', sans-serif;
+        .hero-name {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 600;
+    color: #bfc7ff;
+    text-shadow:
+        0 0 6px rgba(154,167,255,0.6),
+        0 0 14px rgba(154,167,255,0.4),
+        0 0 28px rgba(154,167,255,0.25);
+    margin-top: 20px;
+    z-index: 10;
+}
+
+       
+
+        .hero-image {
+    position: absolute;
+    inset: 0;
+
+    background-image: url("background2.jpg");
+    background-size: cover;
+    background-position: center;
+
+    transform: scale(1.08);
+
+    filter:
+        saturate(1.1)
+        contrast(1.1)
+        brightness(0.7);
+
+    z-index: 1;
+}
+
+        .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        180deg,
+        rgba(10,25,47,0.4),
+        rgba(10,25,47,0.9)
+    );
+
+    z-index: 2;
+}
+  .hero-title {
+            font-family: "Audiowide", sans-serif;
             font-size: clamp(35px, 7vw, 90px);
-            text-transform: uppercase;
+            
             line-height: 1;
-            color: var(--text);
-            text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            color: #ffffff;
+
+            
         }
 
+        .hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    padding: 40px 20px;
+    overflow: hidden;
+}
+
+        .hero::before {
+    content: "";
+    position: absolute;
+    inset: -40px;
+
+    background: radial-gradient(
+        circle at top,
+        rgba(100,255,218,0.15),
+        transparent 60%
+    );
+
+    filter: blur(60px);
+    z-index: 1;
+}
         .hero-subtitle {
             margin-top: 30px;
             font-size: 18px;
@@ -107,7 +212,20 @@
             font-weight: 400;
             padding: 0 20px;
             color: var(--text-soft);
+            position: absolute;
+            bottom: px;
         }
+        .hero-title {
+    color: var(--text);
+}
+
+.hero-subtitle {
+    color: var(--text-soft);
+}
+
+.hero-name {
+    color: var(--text-soft);
+}
 
         /* RAMI (SERVIZI QUADRATI) */
         .section-rami { padding: 100px 5%; max-width: 1400px; margin: 0 auto; }
@@ -119,26 +237,15 @@
         }
 
         .ramo-card {
-            background: var(--card);
-            border-radius: 20px;
-            padding: 30px;
-            height: 180px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+    background: var(--card);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-soft);
+}
 
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow-soft);
-            transition: 0.3s var(--ease);
-        }
-
-        .ramo-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-deep);
-            background: var(--card-light);
-        }
+.ramo-card:hover {
+    background: var(--card-light);
+    border-color: var(--accent-soft);
+}
 
         .ramo-card i {
             font-size: 32px;
@@ -257,24 +364,24 @@
             bottom: -100px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(255,255,255,0.08);
-            backdrop-filter: blur(25px);
+            background: #0000008c;
+            backdrop-filter: blur(5px);
             padding: 12px 25px;
             border-radius: 100px;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(56, 54, 54, 0.744);
             display: flex;
             gap: 25px;
             z-index: 1000;
             transition: bottom 0.5s var(--ease), opacity 0.3s ease;
             box-shadow: var(--shadow-soft);
         }
-        .dock.visible { bottom: 140px; }
+        .dock.visible { bottom: 30px; }
         .dock.at-bottom { opacity: 0; pointer-events: none; bottom: 60px; }
         .dock-item {
             color: var(--text-soft);
             font-size: 22px;
             transition: 0.3s;
-            opacity: 0.6;
+            opacity: 1;
         }
         .dock-item:hover {
             opacity: 1;
@@ -295,20 +402,109 @@
             letter-spacing: 1px;
             line-height: 2;
         }
+
+        /* ==============================
+           FIX Z-INDEX + MOBILE RESPONSIVE
+           ============================== */
+
+        .hero-title,
+        .hero-subtitle,
+        .hero-name {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* RAMI CARD FIX (rounded + smoother hover) */
+        .ramo-card {
+            border-radius: 16px;
+            overflow: hidden;
+            transition: 0.3s var(--ease);
+        }
+
+        .ramo-card:hover {
+            transform: translateY(-4px);
+        }
+
+        /* MOBILE RESPONSIVE FIX */
+        @media (max-width: 768px) {
+
+            .hero-title {
+                font-size: clamp(28px, 10vw, 60px);
+            }
+
+            .hero-subtitle {
+                position: static;
+                margin-top: 20px;
+                padding: 0 20px 40px;
+            }
+
+            .hero-name {
+                top: 20px;
+                letter-spacing: 3px;
+            }
+
+            .section-contatti {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        /* ==============================
+           SPACING + RAMI SIZE FIX
+           ============================== */
+
+        /* 🔥 HERO SPACING FIX */
+        .hero-title {
+            margin-bottom: 12px;
+        }
+
+        .hero-subtitle {
+            bottom: 80px;
+        }
+
+        /* 🧱 RAMI (PIÙ GRANDI E LEGGIBILI) */
+        .rami-grid {
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 28px;
+        }
+
+        .ramo-card {
+            padding: 26px 18px;
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .ramo-card i {
+            font-size: 40px;
+            margin-bottom: 14px;
+        }
+
+        .ramo-card h3 {
+            font-size: 17px;
+            line-height: 1.3;
+        }
     </style>
 </head>
 <body>
 
     <section class="hero">
         <div class="hero-bg"></div>
-
+        <div class="hero-image"></div>
+<!--
         <div class="hero-logo">
             <img src="logo.svg" alt="Logo TDM Elettroimpianti">
         </div>
-
+-->
         <div class="hero-name">TDM Elettroimpianti Srls</div>
 
-        <h1 class="hero-title">Esperienza e Professionalità<br>al tuo servizio.</h1>
+        <h1 class="hero-title">
+    Esperienza e <span class="font-pencerio">professionalità</span><br>
+    al tuo servizio.
+</h1>
 
         <p class="hero-subtitle">
             Azienda specializzata in impianti elettrici con esperienza e materiali certificati. 
